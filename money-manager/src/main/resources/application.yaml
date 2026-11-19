@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: money-manager
+
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/moneymanager_db}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+app:
+  mail:
+    from: ${MAIL_USERNAME}
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000
+
+ai:
+  secret:
+    api-key: ${AI_API_KEY}
+  openai:
+    base-url: https://api.groq.com/openai/v1/chat/completions
+    model: llama-3.3-70b-versatile
